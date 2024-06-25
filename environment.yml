@@ -8,3 +8,4 @@ dependencies:
     - scikit-learn
     - azureml-core
     - azureml-sdk
+    - azureml-defaults
