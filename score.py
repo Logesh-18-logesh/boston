@@ -9,7 +9,7 @@ def init():
 
     # Load the model and scalar
     model_path = Model.get_model_path('regmodel')
-    scalar_path = "models/scaling.pkl"
+    scalar_path = "scaling.pkl"
     model = pickle.load(open(model_path, 'rb'))
     scalar = pickle.load(open(scalar_path, 'rb'))
 
