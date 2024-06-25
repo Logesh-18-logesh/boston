@@ -32,10 +32,16 @@ jobs:
     - name: Set up Azure CLI
       run: |
         az acr login --name ${{ secrets.ACR_NAME }}
-
+    - name: Docker Login
+      uses: azure/docker-login@v1
+      with:
+        login-server: ${{ secrets.REGISTRY_LOGIN_SERVER }}
+        username: ${{ secrets.REGISTRY_USERNAME }}
+        password: ${{ secrets.REGISTRY_PASSWORD }}
+    
     - name: Build and push Docker image
       run: |
-        docker build -t myflaskapp:latest .
+        docker build -t ${{ secrets.REGISTRY_LOGIN_SERVER }}/myflaskapp:${{ github.sha }} .
         docker tag myflaskapp bostonhouseprice.azurecr.io/myflaskapp:latest
         az acr build --registry ${{ secrets.ACR_NAME }} --image myflaskapp:latest .
 
