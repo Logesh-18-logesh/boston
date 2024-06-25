@@ -1,4 +1,6 @@
-from azureml.core import Workspace, Environment, Model, Webservice, AciWebservice, InferenceConfig
+from azureml.core import Workspace, Environment, Model
+from azureml.core.webservice import AciWebservice
+from azureml.core.model import InferenceConfig
 from azureml.core.authentication import ServicePrincipalAuthentication
 import os
 import json
