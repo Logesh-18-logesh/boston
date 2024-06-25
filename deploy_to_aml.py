@@ -23,7 +23,7 @@ ws = Workspace(
 )
 
 # Register the model
-model = Model.register(ws, model_name="regmodel", model_path="models/regmodel.pkl")
+model = Model.register(ws, model_name="regmodel", model_path="regmodel.pkl")
 
 # Define the environment
 env = Environment.from_conda_specification(name="myenv", file_path="environment.yml")
