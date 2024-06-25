@@ -35,6 +35,8 @@ jobs:
 
     - name: Build and push Docker image
       run: |
+        docker build -t myflaskapp:latest .
+        docker tag myflaskapp bostonhouseprice.azurecr.io/myflaskapp:latest
         az acr build --registry ${{ secrets.ACR_NAME }} --image myflaskapp:latest .
 
     - name: Deploy to Azure ML
