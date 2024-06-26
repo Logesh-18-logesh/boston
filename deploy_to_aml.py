@@ -24,6 +24,7 @@ ws = Workspace(
 
 # Register the model
 model = Model.register(ws, model_name="regmodel", model_path="regmodel.pkl")
+model2 = Model.register(ws, model_name="scaling", model_path="scaling.pkl")
 
 # Define the environment
 env = Environment.from_conda_specification(name="myenv", file_path="environment.yml")
@@ -42,7 +43,7 @@ service_name = "house-price-service"
 service = Model.deploy(
     ws, 
     service_name, 
-    [model], 
+    [model,model2], 
     inference_config, 
     aci_config
 )
